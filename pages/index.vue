@@ -6,16 +6,14 @@
         <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
           <div class="pt-32 sm:pt-0">
             <h2 class="font-semibold text-4xl text-blueGray-600">
-              Vue Notus - A beautiful extension for Tailwind CSS.
+            Rian pratama
             </h2>
+            
+            <p class="mt-1 text-lg leading-relaxed text-blueGray-500">
+              front-web Developer 
+            </p>
             <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
-              Vue Notus is Free and Open Source. It does not change any of the
-              CSS from
-              <a href="https://tailwindcss.com/?ref=creativetim" class="text-blueGray-600" target="_blank">
-                Tailwind CSS.
-              </a>
-              It features multiple HTML elements and it comes with dynamic
-              components for ReactJS, Vue and Angular.
+             Perkenalkan saya seorang lulusan D4 teknik informatika dengan lulus pada tahun 2023.
             </p>
             <div class="mt-12">
               <a href="index.vue" target="_blank"
