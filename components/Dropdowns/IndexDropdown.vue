@@ -6,84 +6,30 @@
       ref="btnDropdownRef"
       v-on:click="toggleDropdown($event)"
     >
-      Pages
+      Sosial Media
     </a>
     <div
       ref="popoverDropdownRef"
       class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-      v-bind:class="{
-        hidden: !dropdownPopoverShow,
-        block: dropdownPopoverShow,
-      }"
+      :class="{ hidden: !dropdownPopoverShow, block: dropdownPopoverShow }"
     >
-      <span
-        class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+      <a
+        class="text-sm pt-2 pb-0 px-4 block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+        :href="getSocialMediaLink('instagram')"
       >
-        Admin Layout
-      </span>
-      <router-link
-        to="/admin/dashboard"
+        Instagram
+      </a>
+      <a
+        :href="getSocialMediaLink('linkedin')"
+        target="_blank"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
-        Dashboard
-      </router-link>
-      <router-link
-        to="/admin/settings"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Settings
-      </router-link>
-      <router-link
-        to="/admin/tables"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Tables
-      </router-link>
-      <router-link
-        to="/admin/maps"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Maps
-      </router-link>
-      <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-      <span
-        class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-      >
-        Auth Layout
-      </span>
-      <router-link
-        to="/auth/login"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Login
-      </router-link>
-      <router-link
-        to="/auth/register"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Register
-      </router-link>
-      <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-      <span
-        class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-      >
-        No Layout
-      </span>
-      <router-link
-        to="/landing"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Landing
-      </router-link>
-      <router-link
-        to="/profile"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Profile
-      </router-link>
+        LinkedIn
+      </a>
     </div>
   </div>
 </template>
+
 <script>
 import { createPopper } from "@popperjs/core";
 
@@ -96,13 +42,24 @@ export default {
   methods: {
     toggleDropdown: function (event) {
       event.preventDefault();
+      this.dropdownPopoverShow = !this.dropdownPopoverShow;
+
       if (this.dropdownPopoverShow) {
-        this.dropdownPopoverShow = false;
-      } else {
-        this.dropdownPopoverShow = true;
         createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
           placement: "bottom-start",
         });
+      }
+    },
+    getSocialMediaLink(platform) {
+      switch (platform) {
+        case 'instagram':
+          // Replace with your Instagram link
+          return "https://www.instagram.com/ryan_pratama06?igsh=OGQ5ZDc2ODk2ZA==";
+        case 'linkedin':
+          // Replace with your LinkedIn link
+          return "https://www.linkedin.com/in/rian-pratama-737bb5224/";
+          default:
+          return "";
       }
     },
   },
